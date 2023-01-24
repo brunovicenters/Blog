@@ -1,18 +1,21 @@
 import createDataContext from "./createDataContext";
 
+let deletedApps = 0;
+
 const blogReducer = (state, action) => {
   //state = blogPosts
   //action = type / payload
 
   switch (action.type) {
     case "delete_blogpost":
+      deletedApps++;
       return state.filter((blogPost) => blogPost.id !== action.payload);
     case "add_blogpost":
       return [
         ...state,
         {
           id: Math.floor(Math.random() * 99999),
-          title: `Blog Post #${state.length + 1}`,
+          title: `Blog Post #${state.length + 1 + deletedApps}`,
         },
       ];
     default:

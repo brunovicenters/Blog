@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Context } from "../context/BlogContext";
+import { Feather } from "@expo/vector-icons";
 
 const ShowScreen = ({ navigation }) => {
   const { state } = useContext(Context);
@@ -17,6 +18,16 @@ const ShowScreen = ({ navigation }) => {
       </View>
     </View>
   );
+};
+
+ShowScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate("Edit")}>
+        <Feather name="edit" style={styles.IconEdit} />
+      </TouchableOpacity>
+    ),
+  };
 };
 
 const styles = StyleSheet.create({
@@ -48,6 +59,10 @@ const styles = StyleSheet.create({
 
     marginTop: 10,
     marginHorizontal: 15,
+  },
+  IconEdit: {
+    fontSize: 25,
+    paddingRight: 20,
   },
 });
 

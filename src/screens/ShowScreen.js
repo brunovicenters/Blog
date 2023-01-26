@@ -11,7 +11,10 @@ const ShowScreen = ({ navigation }) => {
 
   return (
     <View style={styles.Container}>
-      <Text style={styles.Title}>{blogPost.title}</Text>
+      <View style={styles.Post}>
+        <Text style={styles.Title}>{blogPost.title}</Text>
+        <Text style={styles.Content}>{blogPost.content}</Text>
+      </View>
     </View>
   );
 };
@@ -22,10 +25,29 @@ const styles = StyleSheet.create({
 
     backgroundColor: "#525151",
   },
+  Post: {
+    backgroundColor: "#525151",
+  },
   Title: {
-    color: "white",
+    color: "black",
 
-    alignSelf: "center",
+    backgroundColor: "#8ecae6",
+
+    fontSize: 30,
+    textAlign: "center",
+
+    marginTop: 15,
+    marginHorizontal: 15,
+  },
+  Content: {
+    color: "black",
+
+    backgroundColor: "#8ecae6",
+
+    fontSize: 18,
+
+    marginTop: 10,
+    marginHorizontal: 15,
   },
 });
 

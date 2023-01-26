@@ -15,10 +15,9 @@ const IndexScreen = ({ navigation }) => {
 
   return (
     <View style={styles.Container}>
-      <Button title="Add Post" onPress={addBlogPost} />
       <FlatList
         data={state}
-        keyExtractor={(blogPost) => blogPost.title}
+        keyExtractor={(blogPost) => blogPost.id}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity

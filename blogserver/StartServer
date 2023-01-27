@@ -1,0 +1,7 @@
+2 terminal tabs -
+
+1º - On blogserver terminal, run:
+"npm run db"
+
+2º - Open the Ngrok app. It will open a terminal window. There, run:
+"ngrok http 3000"

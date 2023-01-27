@@ -1,3 +1,7 @@
 {
-    "blogposts": []
+    "blogposts": [{
+        "id": 1,
+        "title": "API post",
+        "content": "Base post to test"
+        }]
 }

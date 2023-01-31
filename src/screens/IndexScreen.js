@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  Button,
   TouchableOpacity,
 } from "react-native";
 import { Context } from "../context/BlogContext";
@@ -51,12 +50,6 @@ const IndexScreen = ({ navigation }) => {
   );
 };
 
-// IndexScreen.navigationOptions = ({ navigation }) => {
-//   return {
-//     ,
-//   };
-// };
-
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
@@ -80,10 +73,6 @@ const styles = StyleSheet.create({
   IconDel: {
     fontSize: 25,
     color: "white",
-  },
-  IconPlus: {
-    fontSize: 25,
-    paddingRight: 20,
   },
 });
 

@@ -16,7 +16,7 @@ const IndexScreen = ({ navigation }) => {
   useEffect(() => {
     getBlogPost();
 
-    const listener = navigation.addListener("didFocus", () => {
+    const listener = navigation.addListener("focus", () => {
       getBlogPost();
     });
 
@@ -51,15 +51,11 @@ const IndexScreen = ({ navigation }) => {
   );
 };
 
-IndexScreen.navigationOptions = ({ navigation }) => {
-  return {
-    headerRight: () => (
-      <TouchableOpacity onPress={() => navigation.navigate("Create")}>
-        <Feather name="plus" style={styles.IconPlus} />
-      </TouchableOpacity>
-    ),
-  };
-};
+// IndexScreen.navigationOptions = ({ navigation }) => {
+//   return {
+//     ,
+//   };
+// };
 
 const styles = StyleSheet.create({
   Container: {

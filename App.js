@@ -7,6 +7,8 @@ import EditScreen from "./src/screens/EditScreen";
 
 import "react-native-gesture-handler";
 import * as React from "react";
+import { TouchableOpacity, StyleSheet } from "react-native";
+import { Feather } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
@@ -18,14 +20,59 @@ function App() {
         initialRouteName="Index"
         screenOptions={{ gestureEnabled: false }}
       >
-        <Stack.Screen name="Index" component={IndexScreen} />
-        <Stack.Screen name="Show" component={ShowScreen} />
-        <Stack.Screen name="Create" component={CreateScreen} />
-        <Stack.Screen name="Edit" component={EditScreen} />
+        <Stack.Screen
+          name="Index"
+          component={IndexScreen}
+          options={({ navigation }) => ({
+            title: "My Posts",
+            headerRight: () => (
+              <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+                <Feather name="plus" style={styles.IconPlus} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="Show"
+          component={ShowScreen}
+          options={({ navigation, route }) => ({
+            title: "My Post",
+            headerRight: () => (
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("Edit", { id: route.params?.id })
+                }
+              >
+                <Feather name="edit" style={styles.IconEdit} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Stack.Screen
+          name="Create"
+          component={CreateScreen}
+          options={{ title: "Create Post" }}
+        />
+        <Stack.Screen
+          name="Edit"
+          component={EditScreen}
+          options={{ title: "Edit Post" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  IconPlus: {
+    fontSize: 25,
+    paddingRight: 20,
+  },
+  IconEdit: {
+    fontSize: 25,
+    paddingRight: 20,
+  },
+});
 
 export default () => {
   return (

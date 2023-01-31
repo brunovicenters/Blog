@@ -20,17 +20,17 @@ const ShowScreen = ({ route }) => {
   );
 };
 
-ShowScreen.navigationOptions = ({ navigation }) => {
-  return {
-    headerRight: () => (
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Edit", { id: route.params?.id })}
-      >
-        <Feather name="edit" style={styles.IconEdit} />
-      </TouchableOpacity>
-    ),
-  };
-};
+// ShowScreen.navigationOptions = ({ navigation }) => {
+//   return {
+//     headerRight: () => (
+//       <TouchableOpacity
+//         onPress={() => navigation.navigate("Edit", { id: route.params?.id })}
+//       >
+//         <Feather name="edit" style={styles.IconEdit} />
+//       </TouchableOpacity>
+//     ),
+//   };
+// };
 
 const styles = StyleSheet.create({
   Container: {

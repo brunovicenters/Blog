@@ -3,11 +3,11 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Context } from "../context/BlogContext";
 import { Feather } from "@expo/vector-icons";
 
-const ShowScreen = ({ navigation }) => {
+const ShowScreen = ({ route }) => {
   const { state } = useContext(Context);
 
   const blogPost = state.find(
-    (blogPost) => blogPost.id === navigation.getParam("id")
+    (blogPost) => blogPost.id === route.params?.id //navigation.getParam("id")
   );
 
   return (
@@ -24,9 +24,7 @@ ShowScreen.navigationOptions = ({ navigation }) => {
   return {
     headerRight: () => (
       <TouchableOpacity
-        onPress={() =>
-          navigation.navigate("Edit", { id: navigation.getParam("id") })
-        }
+        onPress={() => navigation.navigate("Edit", { id: route.params?.id })}
       >
         <Feather name="edit" style={styles.IconEdit} />
       </TouchableOpacity>

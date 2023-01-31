@@ -1,28 +1,31 @@
-import React from "react";
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import IndexScreen from "./src/screens/IndexScreen";
 import { Provider } from "./src/context/BlogContext";
 import ShowScreen from "./src/screens/ShowScreen";
 import CreateScreen from "./src/screens/CreateScreen";
 import EditScreen from "./src/screens/EditScreen";
 
-const navigator = createStackNavigator(
-  {
-    Index: IndexScreen,
-    Show: ShowScreen,
-    Create: CreateScreen,
-    Edit: EditScreen,
-  },
-  {
-    initialRouteName: "Index",
-    defaultNavigationOptions: {
-      title: "Blogs",
-    },
-  }
-);
+import "react-native-gesture-handler";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 
-const App = createAppContainer(navigator);
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Index"
+        screenOptions={{ gestureEnabled: false }}
+      >
+        <Stack.Screen name="Index" component={IndexScreen} />
+        <Stack.Screen name="Show" component={ShowScreen} />
+        <Stack.Screen name="Create" component={CreateScreen} />
+        <Stack.Screen name="Edit" component={EditScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export default () => {
   return (
@@ -31,3 +34,28 @@ export default () => {
     </Provider>
   );
 };
+
+// const navigator = createStackNavigator(
+//   {
+//     Index: IndexScreen,
+//     Show: ShowScreen,
+//     Create: CreateScreen,
+//     Edit: EditScreen,
+//   },
+//   {
+//     initialRouteName: "Index",
+//     defaultNavigationOptions: {
+//       title: "Blogs",
+//     },
+//   }
+// );
+
+// const App = createAppContainer(navigator);
+
+// export default () => {
+//   return (
+//     <Provider>
+//       <App />
+//     </Provider>
+//   );
+// };
